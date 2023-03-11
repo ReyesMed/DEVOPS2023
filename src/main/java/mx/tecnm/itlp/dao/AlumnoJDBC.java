@@ -18,6 +18,7 @@ public class AlumnoJDBC {
         String sql = "SELECT * FROM alumnos";
         return conexion.query(sql,new AlumnoRM());
     }
+    
 
     
 }
