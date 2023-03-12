@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import mx.tecnm.itlp.models.Mi_Lista;
+import mx.tecnm.itlp.models.PerfilUsuarioRequest;
 
 
 
@@ -31,5 +32,11 @@ public class Mi_Lista_JDBC {
 		String sql = "update mi_lista set activo = '0', fecha_modificado = now() " +
 				"where peliculas_id = ? and perfiles_usuarios_id = ?;";
 		conexion.update(sql, pelicula_id, perfil_usuario_id);
+	}
+	
+	public void agregarNuevaLIsta(PerfilUsuarioRequest perfil) {
+		String sql = "insert into mi_lista(fecha, perfiles_usuarios_id, peliculas_id) " +
+				"values (?, ?, ?);";
+		conexion.update(sql, perfil.getFecha(), perfil.getPerfiles_usuarios_id(), perfil.getPeliculas_id());
 	}
 }
