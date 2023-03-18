@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import mx.tecnm.itlp.models.Mi_Lista;
+import mx.tecnm.itlp.models.PerfilUsuarioRequest;
 
 
 
@@ -34,10 +35,17 @@ public class Mi_Lista_JDBC {
 		conexion.update(sql, pelicula_id, perfil_usuario_id);
 	}
 	
+<<<<<<< HEAD
 	public int contar_peliculas(int perfiles_usuarios_id){
 		String sql="SELECT COUNT(*) "
 		+"FROM mi_lista "
 		+"WHERE activo=1 AND perfiles_usuarios_id=?;";
         return conexion.queryForObject(sql ,Integer.class,perfiles_usuarios_id);
+=======
+	public void agregarNuevaLIsta(PerfilUsuarioRequest perfil) {
+		String sql = "insert into mi_lista(fecha, perfiles_usuarios_id, peliculas_id) " +
+				"values (?, ?, ?);";
+		conexion.update(sql, perfil.getFecha(), perfil.getPerfiles_usuarios_id(), perfil.getPeliculas_id());
+>>>>>>> 42f5520097898934ab0eda5ec53543d273c277ff
 	}
 }

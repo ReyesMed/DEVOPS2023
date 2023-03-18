@@ -7,11 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.tecnm.itlp.dao.Mi_Lista_JDBC;
 import mx.tecnm.itlp.models.Mi_Lista;
+import mx.tecnm.itlp.models.PerfilUsuarioRequest;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -48,6 +51,7 @@ public class Mi_Lista_REST {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
+<<<<<<< HEAD
 	@GetMapping("/contar_peliculas")
 	public int contar_peliculas(@RequestParam int perfiles_usuarios_id) {
 		try {
@@ -57,6 +61,17 @@ public class Mi_Lista_REST {
 			e.printStackTrace();
 			return 0;
 			
+=======
+	
+	@PostMapping()
+	public ResponseEntity<?> agregarNuevaLista(@RequestBody PerfilUsuarioRequest perfil) {
+		try {
+			repository.agregarNuevaLIsta(perfil);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+>>>>>>> 42f5520097898934ab0eda5ec53543d273c277ff
 		}
 	}
 }
