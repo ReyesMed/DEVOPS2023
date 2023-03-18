@@ -51,7 +51,7 @@ public class Mi_Lista_REST {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
-<<<<<<< HEAD
+
 	@GetMapping("/contar_peliculas")
 	public int contar_peliculas(@RequestParam int perfiles_usuarios_id) {
 		try {
@@ -60,8 +60,9 @@ public class Mi_Lista_REST {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
-			
-=======
+		}
+	}		
+
 	
 	@PostMapping()
 	public ResponseEntity<?> agregarNuevaLista(@RequestBody PerfilUsuarioRequest perfil) {
@@ -71,7 +72,7 @@ public class Mi_Lista_REST {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
->>>>>>> 42f5520097898934ab0eda5ec53543d273c277ff
+
 		}
 	}
 }
