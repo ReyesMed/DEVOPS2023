@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import mx.tecnm.itlp.models.Mi_Lista;
 
@@ -31,5 +32,12 @@ public class Mi_Lista_JDBC {
 		String sql = "update mi_lista set activo = '0', fecha_modificado = now() " +
 				"where peliculas_id = ? and perfiles_usuarios_id = ?;";
 		conexion.update(sql, pelicula_id, perfil_usuario_id);
+	}
+	
+	public int contar_peliculas(int perfiles_usuarios_id){
+		String sql="SELECT COUNT(*) "
+		+"FROM mi_lista "
+		+"WHERE activo=1 AND perfiles_usuarios_id=?;";
+        return conexion.queryForObject(sql ,Integer.class,perfiles_usuarios_id);
 	}
 }

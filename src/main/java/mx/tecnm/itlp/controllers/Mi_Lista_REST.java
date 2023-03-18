@@ -48,4 +48,15 @@ public class Mi_Lista_REST {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
+	@GetMapping("/contar_peliculas")
+	public int contar_peliculas(@RequestParam int perfiles_usuarios_id) {
+		try {
+			return  repository.contar_peliculas(perfiles_usuarios_id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+			
+		}
+	}
 }
